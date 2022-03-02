@@ -1,0 +1,194 @@
+body {
+	background-color: #030722;
+	color: white;
+	font-size: 20px;
+	font-family: Verdana;
+}
+
+h3 {
+	margin: 10px;
+}
+
+#help {
+	position: fixed;
+	display: block;
+	width: 70%;
+	font-size: 18px;
+	left: 15%;
+	top: 20px;
+	background-color: #1f1e33;
+	text-align: center;
+	border-radius: 3px;
+	border: 2px #aaf solid;
+	visibility: hidden;
+}
+
+#enter {
+	position: relative;
+	display: block;
+	width: 100px;
+	margin-left: -50px;
+	background-color: #132;
+	left: 50%;
+	border: 2px #053 solid;
+	border-radius: 2px;
+	color: #4e7;
+	text-align: center;
+	user-select: none;
+}
+
+#enter:hover {
+	background-color: #364;
+	cursor: pointer;
+}
+
+#info {
+	font-size: 18px;
+}
+
+#info:hover {
+	cursor: pointer;
+	color: #aaf;
+}
+
+#info:hover #help {
+	visibility: visible;
+	color: white;
+	font-weight: 100;
+	padding: 5px 20px;
+}
+
+#share {
+	display: inline-block;
+	width: 100px;
+	background-color: #102;
+	margin-top: 5px;
+	left: 50%;
+	border: 2px #035 solid;
+	border-radius: 2px;
+	color: #47e;
+	text-align: center;
+	user-select: none;
+}
+
+#share:hover {
+	background-color: #204;
+	cursor: pointer;
+}
+
+#invalidboard {
+	position: fixed;
+	width: 500px;
+	left: 50%;
+	margin-left: -250px;
+	background-color: #622;
+	border: 2px red solid;
+	border-radius: 1px;
+	top: 30px;
+	text-align: center;
+}
+
+.topleft, .topright, .bottomleft, .bottomright {
+	width: 20px;
+	height: 20px;
+	line-height:0px;
+	padding:0px;
+	border-color:#cbb;
+	border-style:solid;
+	border-width:0;
+}
+
+table {
+	border-spacing: 0;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	border: 2px #cbb solid;
+	border-radius: 2px;
+}
+
+.green {
+	background-color: #6f6;
+	transition: all 1s ease-out;
+}
+
+.border {
+	background-color: #888;
+	transition: all 1s ease-out;
+}
+
+.topleft {
+	box-shadow:-1px -1px #cbb;
+}
+
+.topright {
+	box-shadow:1px -1px #cbb;
+}
+
+.bottomleft {
+	box-shadow:-1px 1px #cbb;
+}
+
+.bottomright {
+	box-shadow:1px 1px #cbb;
+}
+
+.topleft:not(.b) {
+	border-left-width:1px;
+}
+.topleft:not(.r) {
+	border-top-width:1px;
+}
+
+.topright:not(.b) {
+	border-right-width:1px;
+}
+.topright:not(.l) {
+	border-top-width:1px;
+}
+
+.bottomleft:not(.t) {
+	border-left-width:1px;
+}
+.bottomleft:not(.r) {
+	border-bottom-width:1px;
+}
+
+.bottomright:not(.t) {
+	border-right-width:1px;
+}
+.bottomright:not(.l) {
+	border-bottom-width:1px;
+}
+
+.b {
+	border-bottom: 1px green solid;
+	height: 19px;
+	width: 21px;
+}
+
+.t {
+	border-top: 1px green solid;
+	height: 19px;
+	width: 21px;
+}
+
+.l {
+	border-left: 1px green solid;
+	width: 19px;
+	height: 21px;
+}
+
+.r {
+	border-right: 1px green solid;
+	width: 19px;
+	height: 21px;
+}
+
+.t.l, .t.r, .b.l, .b.r {
+	width: 19px;
+	height: 19px;
+}
+
+
+
