@@ -339,7 +339,7 @@ function share(){
 	for (var i=0;i<current_board;i++){
 		for (var j=1;j<n-1;j++){
 			for (var k=1;k<m-1;k++){
-				p = PIPE_DICT[z.boards[i][j][k]];
+				p = PIPE_DICT[user_boards[i][j][k]];
 				if (p == board[j*m+k]){
 					s += green;
 				} else {
