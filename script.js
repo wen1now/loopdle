@@ -1,4 +1,4 @@
-const START_DAY = 19053;
+const START_DAY = 19054;
 const CELL_TYPES = 6;
 DIR_DICT = function(di,dj){
 	if (di==1){
