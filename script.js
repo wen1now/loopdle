@@ -351,6 +351,7 @@ function share(){
 		s += '\n';
 	}
 	copyToClipboard(`Loopdle ${day} ${current_board}/${attempts}`+s);
+	alert("copied to clipboard");
 }
 
 function updateTimeLeft(){
