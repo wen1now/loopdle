@@ -105,6 +105,7 @@ table {
 	display: inline-block;
 	border: 2px #cbb solid;
 	border-radius: 2px;
+	user-select: none;
 }
 
 .green {
