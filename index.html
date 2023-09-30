@@ -8,15 +8,15 @@
 	<div id="everything" style="visibility:hidden">
 		<h2>Loopdle2 <span id="info">&#9432<div id="help"><h3>Rules</h3>This site is not mobile friendly :( Click and drag to draw a loop through all cells.<br>Green is right. Grey means it's on the border. Black is wrong.<br>Try and guess the loopdle in less than five guesses!<h3>Statistics</h3>
 			You currently have a <span id="streak"></span> streak.<br>
-			<div id="statshover" onmouseenter="update_stats()">Hover over me for a detailed breakdown of past attempts!
-				<div id="statsbox"><canvas id="statsgraph"></canvas>
+			<div><span id="statshover" onmouseenter="update_stats()">Hover over me for a detailed breakdown of past attempts!
+				<div id="statsbox"><canvas id="statsgraph" width="800px" height="600px"></canvas>
 					You have <span id="wins">5</span> successful loopdles out of <span id="atts">100</span> total loopdles attempted
 					(<span id="winrate"></span>% winrate)<br>
 					Out of the ones you solved, you use <span id="avg"></span> guesses on average.
 				
 				</div>
 				
-				</div>
+			</span></div>
 			<h3>Countdown</h3><div id="countdown"></div><h3>Option<s>s</s></h3><div id="toggle_highlighting" onclick="toggle_highlighting()">Toggle highlighting</div>
 			<div>The old 6x6 loopdle can be found <a href="../loopdle/index_old.html">here</a>.</div>
 		</div></span></h2>
