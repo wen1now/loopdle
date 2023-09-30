@@ -363,7 +363,7 @@ function updateTimeLeft(){
 		if (S < 10){S = "0" + S}
 		seconds_left = Math.floor(seconds_left/60);
 		var M = seconds_left%60;
-		if (M < 10){S = "0" + M}
+		if (M < 10){M = "0" + M}
 		seconds_left = Math.floor(seconds_left/60);
 		var H = seconds_left;
 		var s = `Time until new loopdle: ${H}:${M}:${S}`;

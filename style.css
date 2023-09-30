@@ -5,6 +5,10 @@ body {
 	font-family: Verdana;
 }
 
+a {
+	color: white;
+}
+
 h3 {
 	margin: 10px;
 }
@@ -21,6 +25,53 @@ h3 {
 	border-radius: 3px;
 	border: 2px #aaf solid;
 	visibility: hidden;
+	color: white;
+	font-weight: 100;
+	padding: 5px 20px;
+}
+
+/* well that failed
+@keyframes streak {
+    0% { 
+		text-shadow : 2px -2px 3px #f61, 2px 2px 3px #f61, -2px -2px 3px #f61, -2px 2px 3px #f61;
+		color: #f99;
+	}
+    50% { 
+		text-shadow : 1px -1px 4px #f61, 1px 1px 4px #f61, -1px -1px 3px #f61, -1px 1px 4px #f61;
+		color: #fcc;
+	}
+    100% { 
+		text-shadow : 2px -2px 3px #f61, 2px 2px 3px #f61, -2px -2px 3px #f61, -2px 2px 3px #f61;
+		color: #f99;
+	}
+}
+*/
+
+#streak {
+	text-shadow : 2px -2px 3px #f61, 2px 2px 3px #f61, -2px -2px 3px #f61, -2px 2px 3px #f61;
+	color: #f99;
+}
+
+
+#toggle_highlighting {
+	display:inline-block;
+	width: 200px;
+	background-color: #132;
+	border: 2px #053 solid;
+	border-radius: 2px;
+	color: #4e7;
+	text-align: center;
+}
+
+#toggle_highlighting:hover {
+	background-color: #364;
+	cursor: pointer;
+}
+
+#bottom_bar {
+	display:block;
+	width:95%;
+	text-align: center;
 }
 
 #enter {
@@ -42,20 +93,84 @@ h3 {
 	cursor: pointer;
 }
 
+#new_enter, #copy_green, #clear_grid {
+	/*position: relative;*/
+	display: inline-block;
+	width: 200px;
+	margin-left: 50px;
+	border-radius: 2px;
+	text-align: center;
+	user-select: none;
+}
+
+#new_enter {
+	border: 2px #053 solid;
+	background-color: #132;
+	color: #4e7;
+}
+
+#new_enter:hover {
+	background-color: #364;
+	cursor: pointer;
+}
+
+#copy_green {
+	border: 2px #053 solid;
+	background-color: #132;
+	color: #4e7;
+}
+
+#copy_green:hover {
+	background-color: #364;
+	cursor: pointer;
+}
+
+#clear_grid {
+	border: 2px #822 solid;
+	background-color: #522;
+	color: #f77;
+}
+
+#clear_grid:hover {
+	background-color: #a55;
+	cursor: pointer;
+}
+
 #info {
 	font-size: 18px;
 }
 
 #info:hover {
-	cursor: pointer;
 	color: #aaf;
 }
 
 #info:hover #help {
 	visibility: visible;
+}
+
+#statsbox {
+	position: fixed;
+	display: block;
+	width: 70%;
+	font-size: 18px;
+	left: 20%;
+	top: 30%;
+	background-color: #336;
+	text-align: center;
+	border-radius: 3px;
+	border: 2px #ccf solid;
+	visibility: hidden;
+}
+
+#statshover:hover #statsbox {
+	visibility: visible;
 	color: white;
 	font-weight: 100;
 	padding: 5px 20px;
+}
+
+#wins, #winrate, #atts, #avg {
+	color: lightgreen;
 }
 
 #share {
@@ -89,8 +204,8 @@ h3 {
 }
 
 .topleft, .topright, .bottomleft, .bottomright {
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 	line-height:0px;
 	padding:0px;
 	border-color:#cbb;
@@ -113,9 +228,29 @@ table {
 	transition: all 1s ease-out;
 }
 
+.highlight.green {
+	transition: all 0s ease-out;
+}
+
+.green.instagreen {
+	transition: all 0s ease-out;
+}
+
 .border {
 	background-color: #888;
 	transition: all 1s ease-out;
+}
+
+.highlight.border {
+	transition: all 0s ease-out;
+}
+
+.border.instagreen {
+	transition: all 0s ease-out;
+}
+
+.highlight {
+	background-color: #aaf;
 }
 
 .topleft {
@@ -164,31 +299,31 @@ table {
 
 .b {
 	border-bottom: 1px green solid;
-	height: 19px;
-	width: 21px;
+	height: 14px;
+	width: 16px;
 }
 
 .t {
 	border-top: 1px green solid;
-	height: 19px;
-	width: 21px;
+	height: 14px;
+	width: 16px;
 }
 
 .l {
 	border-left: 1px green solid;
-	width: 19px;
-	height: 21px;
+	width: 14px;
+	height: 16px;
 }
 
 .r {
 	border-right: 1px green solid;
-	width: 19px;
-	height: 21px;
+	width: 14px;
+	height: 16px;
 }
 
 .t.l, .t.r, .b.l, .b.r {
-	width: 19px;
-	height: 19px;
+	width: 14px;
+	height: 14px;
 }
 
 

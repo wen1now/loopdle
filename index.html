@@ -1,19 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Loopdle</title>
+	<title>Loopdle2</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div id="everything" style="visibility:hidden">
-		<h2>Loopdle <span id="info">&#9432<div id="help"><h3>Rules</h3>This site is not mobile friendly :( Click and drag to draw a loop through all cells.<br>Green is right. Grey means it's on the border. Black is wrong.<br>Try and guess the loopdle in less than five guesses!<h3>Statistics</h3>...coming soon, if ever :(<h3>Countdown</h3><div id="countdown"></div></div></span></h2>
+		<h2>Loopdle2 <span id="info">&#9432<div id="help"><h3>Rules</h3>This site is not mobile friendly :( Click and drag to draw a loop through all cells.<br>Green is right. Grey means it's on the border. Black is wrong.<br>Try and guess the loopdle in less than five guesses!<h3>Statistics</h3>
+			You currently have a <span id="streak"></span> streak.<br>
+			<div id="statshover" onmouseenter="update_stats()">Hover over me for a detailed breakdown of past attempts!
+				<div id="statsbox"><canvas id="statsgraph"></canvas>
+					You have <span id="wins">5</span> successful loopdles out of <span id="atts">100</span> total loopdles attempted
+					(<span id="winrate"></span>% winrate)<br>
+					Out of the ones you solved, you use <span id="avg"></span> guesses on average.
+				
+				</div>
+				
+				</div>
+			<h3>Countdown</h3><div id="countdown"></div><h3>Option<s>s</s></h3><div id="toggle_highlighting" onclick="toggle_highlighting()">Toggle highlighting</div>
+			<div>The old 6x6 loopdle can be found <a href="../loopdle/index_old.html">here</a>.</div>
+		</div></span></h2>
 		<div id="boards"></div>
 		<div id="invalidboard">Invalid board.</div>
-		<div id="enter" onclick="check_press()">Enter</div>
+		<div id="bottom_bar">
+			<span id="new_enter" onclick="check_press()">Enter</span>
+			<span id="copy_green" onclick="fill_greens()">Copy greens</span>
+			<span id="clear_grid" onclick="clear_grid(true)">Clear grid</span>
+		</div>
 		<div id="congratulations"></div><div id="share" onclick="share()">Share!</div>
-		<script type="text/javascript" src="data.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 		<script type="text/javascript" src="mersenne-twister.js"></script>
-		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="script2.js"></script>
 	</div>
 </body>
 </html>
