@@ -593,21 +593,6 @@ function fill_greens(){
         return;
     }
 
-    let g = false;
-    for (j=0;j<n;j++){
-        for (k=0;k<m;k++){
-            if (user_boards[current_board][j][k] != 0){
-                g = true;
-                break;
-            }
-        }
-        if (g)break;
-    }
-
-    if (g){
-        if (!confirm("This will copy green cells from previous grids, but overwrite all your current progress. Are you sure?"))return;
-    }
-    clear_grid(false);
     for (j=0;j<n;j++){
         for (k=0;k<m;k++){
             for (i=0;i<attempts;i++){
@@ -634,7 +619,7 @@ function fill_greens(){
 	save_to_storage();
 }
 
-function clear_grid(c){
+function clear_grid(){
     if (locked || (current_board >= attempts)){
         alert("Invalid operation.");
         return;
@@ -651,10 +636,8 @@ function clear_grid(c){
         if (g)break;
     }
 
-    if (g && c){
-        if (c){
-            if (!confirm("This will clear the progress on your current grid. Are you sure?"))return;
-        }
+    if (g){
+        if (!confirm("This will clear the progress on your current grid. Are you sure?"))return;
     }
     for (j=0;j<n;j++){
         for (k=0;k<m;k++){
