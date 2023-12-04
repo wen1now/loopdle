@@ -330,6 +330,8 @@ place = document.getElementById("boards");
 place.innerHTML += s;
 
 var i_, j_, k_, dragging, draw_lines;
+// most requested feature
+var active_touch_id = null;
 
 function resetDrag(){
 	i_ = -1;
@@ -415,19 +417,65 @@ function mouseleft(){
     clear_highlight();
 }
 
+function touch_over(ev) {
+    for (touch of ev.changedTouches) {
+        if (touch.identifier === active_touch_id) {
+            active_touch_id = null;
+            resetDrag();
+        }
+    }
+}
+
+// why does handling touches suck
+addEventListener('touchmove', (ev) => {
+    if (active_touch_id === null) return;
+
+    let active_touch = Array.from(ev.changedTouches).find(
+        (touch) => touch.identifier === active_touch_id);
+    if (active_touch === undefined) return;
+
+    ev.preventDefault();
+
+    let el = document.elementFromPoint(active_touch.clientX, active_touch.clientY);
+    if (!document.getElementById('boards').contains(el) ||
+            el.tagName != "TD") {
+        return;
+    }
+
+    let i = el.getAttribute('i');
+    let j = el.getAttribute('j');
+    let k = el.getAttribute('k');
+    draw_to(i, j, k);
+}, { passive: false });
 for (var i=0;i<attempts;i++){
-	document.getElementById(`table${i}`).addEventListener('mouseleave', mouseleft);
-	document.getElementById(`table${i}`).addEventListener('mouseup', resetDrag);
+    let table = document.getElementById(`table${i}`);
+	table.addEventListener('mouseleave', mouseleft);
+	table.addEventListener('mouseup', resetDrag);
+    table.addEventListener('touchend', touch_over);
+    table.addEventListener('touchcancel', touch_over);
+
 	for (var j=0;j<n;j++){
 		for (var k=0;k<m;k++){
 			for (var l=0;l<4;l++){
 				z = ['tl','tr','bl','br'][l];
-				document.getElementById(`${i}.${j}.${k}`+z).addEventListener('mousemove', function(){
-					draw_to(this.getAttribute('i'),this.getAttribute('j'),this.getAttribute('k'));
-				})
-				document.getElementById(`${i}.${j}.${k}`+z).addEventListener('mousedown', function(){
-					begin_draw(this.getAttribute('i'),this.getAttribute('j'),this.getAttribute('k'));
-				})
+                let cell = document.getElementById(`${i}.${j}.${k}`+z);
+				cell.addEventListener('mousemove', ((i, j, k) => () => {
+					draw_to(i, j, k);
+				})(i, j, k));
+				cell.addEventListener('mousedown', ((i, j, k) => () => {
+					begin_draw(i, j, k);
+				})(i, j, k));
+                cell.addEventListener('touchstart', ((i, j, k) => (ev) => {
+                    if (active_touch_id !== null) return;
+
+                    // so you can drag other boards to scroll
+                    if (i != current_board) return;
+
+                    if (ev.targetTouches.length > 0) {
+                        active_touch_id = ev.targetTouches[0].identifier;
+                        begin_draw(i, j, k);
+                    }
+                })(i, j, k));
 			}
 		}
 	}
